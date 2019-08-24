@@ -1,7 +1,6 @@
 <template>
   <v-app data-app>
     <v-layout justify-center>
-
       <v-app-bar app color="white">
         <v-toolbar-title>
           <v-btn color="primary" @click.stop="dialog = true">
@@ -62,6 +61,7 @@
           </v-flex>
         </v-container>
       </v-content>
+
     </v-layout>
   </v-app>
 </template>
@@ -83,32 +83,25 @@ export default {
     }
   },
   mounted () {
-    this.getTasks()
+    this.getData()
   },
   methods: {
-    getTasks () {
+    getData () {
       this.$store.dispatch('setTodo')
     },
-    hideModal () {
-      this.$root.$emit('bv::hide::modal', 'my-modal', '#btnShow')
-    },
-    addTodo () {
-      todosCollection.add({
+    async addTodo () {
+      await todosCollection.add({
         title: this.newTitle,
         text: this.newTodo,
         createdAt: new Date()
       })
-      .then(() => {
+        this.getData()
         this.newTitle = '',
-        this.newTodo = '',
-        this.getTasks()
-      })
+        this.newTodo = ''
     },
-    deleteTodo (id) {
-      todosCollection.doc(id).delete()
-      .then(() => {
-        this.getTasks()
-      })
+    async deleteTodo (id) {
+      await todosCollection.doc(id).delete()
+        this.getData()
     },
     editTodo (todo) {
       this.dialogUpdate = true
@@ -116,16 +109,15 @@ export default {
       this.todoEditText = todo.text
       this.todoEditTitle = todo.title
     },
-    updateTodoText () {
-      todosCollection.doc(this.currentlyEditing).update({
+    async updateTodoText () {
+      await todosCollection.doc(this.currentlyEditing).update({
         text: this.todoEditText,
         title: this.todoEditTitle
       })
+      this.getData()
       this.currentlyEditing = null;
       this.todoEditText = '';
       this.todoEditTitle = '';
-      this.getTasks()
-      this.$root.$emit('bv::hide::modal', 'my-modal-update', '#btnShowUpdate')
     }
   },
   computed: mapState([
@@ -134,7 +126,7 @@ export default {
 }
 </script>
 
-<style>
+<style media="screen">
 body {
   margin: 0;
   padding: 0;
