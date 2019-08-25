@@ -1,4 +1,4 @@
-# vue-vuetify
+# vuestacks-taskmanager-vue-vuex-firebase
 
 ## Project setup
 ```
