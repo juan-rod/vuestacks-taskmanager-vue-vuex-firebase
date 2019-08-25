@@ -28,21 +28,23 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+### Check out https://jsfanatik.github.io to learn more about the VueStacks initiative!
+
 ### Technical overview
 
-The VueStacks task manager demo utilizes general Vue.js + Firebase CRUD functions to create, update, and delete task cards. The user can create a new task by opening a dialog box styled as a post it note. After clicking “Add”, the note is rendered on the screen as a post it note. The user can update the note by reopening the card in a new dailog box and updating the contents. After clicking “update”, the updated note will render on the screen in place of the old note. 
+The VueStacks task manager demo utilizes general Vue.js + Firebase CRUD functions to create, update, and delete task cards. The user can create a new task by opening a dialog box styled as a post it note. After clicking “Add”, the note is rendered on the screen as a post it note. The user can update the note by reopening the card in a new dailog box and updating the contents. After clicking “update”, the updated note will render on the screen in place of the old note.
 
-“Add New Note” opens the first dialog box used to input a new todo task. 
+“Add New Note” opens the first dialog box used to input a new todo task.
 
-```addTodo ()``` adds the inputted todo to the database collection in Firebase. 
+```addTodo ()``` adds the inputted todo to the database collection in Firebase.
 
-```deleteTodo ()``` removes the targeted todo in the Firebase collection. 
+```deleteTodo ()``` removes the targeted todo in the Firebase collection.
 
-```editTodo ()``` opens the second dialog box used to edit the todo note while simultaneously pushing the content of the targeted note into the second dialog box. 
+```editTodo ()``` opens the second dialog box used to edit the todo note while simultaneously pushing the content of the targeted note into the second dialog box.
 
-```updateTodoText ()``` triggers the update of the note. 
+```updateTodoText ()``` triggers the update of the note.
 
-```getData ()``` is a callback function that dispatches an action in store.js (Vuex store). The action retrieves the inputted data from the database then commits a mutation. State is then updated with the retrieved data. A computed property (using the mapState helper) returns the changed state to the component. 
+```getData ()``` is a callback function that dispatches an action in store.js (Vuex store). The action retrieves the inputted data from the database then commits a mutation. State is then updated with the retrieved data. A computed property (using the mapState helper) returns the changed state to the component.
 
 ### Setting up Firebase
 
