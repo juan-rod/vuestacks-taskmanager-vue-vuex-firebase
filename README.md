@@ -42,7 +42,7 @@ editTodo () opens the second dialog box used to edit the todo note while simulta
 
 updateTodoText () triggers the update of the note. 
 
-getData () is a callback function that returns the status of the database after addTodo () , deleteTodo (), and updateTodoText () have executed.
+getData () is a callback function that dispatches an action in store.js (Vuex store). The action retrieves the inputted data from the database then commits a mutation. State is then updated with the retrieved data. A computed property (using the mapState helper) returns the changed state to the component. 
 
 ### Setting up Firebase
 
