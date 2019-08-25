@@ -34,15 +34,15 @@ The VueStacks task manager demo utilizes general Vue.js + Firebase CRUD function
 
 “Add New Note” opens the first dialog box used to input a new todo task. 
 
-addTodo () adds the inputted todo to the database collection in Firebase. 
+```addTodo ()``` adds the inputted todo to the database collection in Firebase. 
 
-deleteTodo () removes the targeted todo in the Firebase collection. 
+```deleteTodo ()``` removes the targeted todo in the Firebase collection. 
 
-editTodo () opens the second dialog box used to edit the todo note while simultaneously pushing the content of the targeted note into the second dialog box. 
+```editTodo ()``` opens the second dialog box used to edit the todo note while simultaneously pushing the content of the targeted note into the second dialog box. 
 
-updateTodoText () triggers the update of the note. 
+```updateTodoText ()``` triggers the update of the note. 
 
-getData () is a callback function that dispatches an action in store.js (Vuex store). The action retrieves the inputted data from the database then commits a mutation. State is then updated with the retrieved data. A computed property (using the mapState helper) returns the changed state to the component. 
+```getData ()``` is a callback function that dispatches an action in store.js (Vuex store). The action retrieves the inputted data from the database then commits a mutation. State is then updated with the retrieved data. A computed property (using the mapState helper) returns the changed state to the component. 
 
 ### Setting up Firebase
 
